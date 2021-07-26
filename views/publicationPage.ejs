@@ -1,0 +1,30 @@
+<%- include('./partials/header') %>
+<%- include('./partials/headerBlock') %>
+    
+<main class="position-relative">
+   <div id="main-block">
+
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+               <div class="publications">
+                  <%- include('./partials/publication',{publication}) %> 
+               </div>
+    
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+</main>
+   
+<%- include('./partials/publicationModals') %>
+<%- include('./partials/footer') %>
+
+<script>
+   function onDeletePublication(){
+      location.href="/";
+   }
+</script>

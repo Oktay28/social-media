@@ -1,0 +1,55 @@
+<%- include('./partials/header') %>
+<%- include('./partials/headerBlock') %>
+
+<main class="position-relative">
+    <div id="main-block">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+
+                    <div id="chat-new-message" class="d-flex justify-content-center align-items-center">
+                        <div class="card" id="primary-message-box">
+                            <div class="card-header bg-info">
+                              <h3 class="card-title">New Message</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form class="form-horizontal" method="GET">
+                              <div class="card-body">
+                                <div class="row">
+                                    <!-- right side -->
+                                    <div class="col-12">
+                                          <div class="form-group">
+                                            <label for="message-to" class="col-form-label">Message to:</label>
+                                            <select name="user" id="message-to" class="form-control">
+                                                <option></option>
+                                                <% friends.forEach(friend => { %>
+                                                  <option value="<%= friend.id %>"><%= friend.name %></option>
+                                                <% }) %>
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <!-- end of right side -->
+                                </div>
+                    
+                              </div>
+                              <!-- /.card-body -->
+                              <div class="card-footer">
+                                <button type="submit" class="btn btn-info">Find</button>
+                              </div>
+                              <!-- /.card-footer -->
+                            </form>
+                          </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+
+<%- include('./partials/footer') %>

@@ -1,0 +1,55 @@
+<%- include('./partials/header') %>
+<%- include('./partials/headerBlock') %>
+
+<main class="position-relative">
+    <div id="main-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mt-5">
+                        <div class="bg-secondary">
+                            <div class="row align-items-center">
+                                <div class="col-sm-6 col-md-4">
+                                    <img src="<%= data.user.avatar %>" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-sm-6 col-md-8">
+                                    <h4><%= data.user.name %></h4>
+
+                                    <div class="mb-3">
+                                        <%= data.user.email %><i class="fa fa-envelope" aria-hidden="true"></i>
+                                    </div>
+
+                                    <% if(data.user.address){ %>
+                                        <div class="mb-3">
+                                            <small><cite><%= data.user.address %><i class="fa fa-map-marker" aria-hidden="true"></i></cite></small>
+                                        </div>
+                                    <% } %>
+                                    <% if(data.user.job){ %>
+                                        <div class="mb-3">
+                                            <%= data.user.job %> <i class="fas fa-briefcase"></i>
+                                        </div>
+                                    <% } %>
+                                    <% if(data.user.birthday){ %>
+                                        <div class="mb-3">
+                                            <%= data.user.birthday %><i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </div>
+                                    <% } %>
+                                    <% if(data.user.phone){ %>
+                                        <div class="mb-3">
+                                            <%= data.user.phone %><i class="fa fa-phone" aria-hidden="true"></i>
+                                        </div>
+                                    <% } %>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('./partials/publicationModals') %>
+<%- include('./partials/footer') %>

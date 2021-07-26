@@ -1,0 +1,167 @@
+@import "variables";
+@import "login-register";
+@import "navbar";
+@import "publications";
+@import "chat";
+@import "user";
+
+body{
+    font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex:1;
+}
+
+@each $name, $color in $page-colors{
+    .bg-#{$name}{
+        background-color: $color;
+    }
+
+    .btn-#{$name}{
+        background-color: $color;
+
+        &:hover{
+            background-color: darken($color, 20%);
+        }
+    }
+}
+
+.form-control{
+    line-height: 50px;
+    background: #fafafa;
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: #666;
+    transition: all 0.4s ease;
+    outline: none;
+    border: none;
+    height: unset;
+}
+
+.custom-radio{
+    .radio{
+        display: none;
+        &:checked{
+            &~label .custom-radio-btn{
+                &::after{
+                    content:"";
+                }
+            }
+        }
+    }
+    label{
+        display: flex;
+        align-items: center;
+    }
+    .custom-radio-btn{
+        margin-right: 10px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: lightslategray;
+        position: relative;
+        
+        &::after{
+            position: absolute;
+            border-radius: 50%;
+            left: $custom-radio-offset;
+            top: $custom-radio-offset;
+            bottom: $custom-radio-offset;
+            right: $custom-radio-offset;
+            background-color: $custom-radio-color;
+        }
+    }
+}
+
+.icon-arrow-right{
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid #000000;
+    display: inline-block;
+}
+
+.icon-arrow-left{
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 10px solid #000000;
+    display: inline-block;
+}
+
+#make-publication-button{
+    color: #ffffff;
+    background-color: getcolor(color1);
+    padding: 10px 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border: 2px solid getcolor(color3);
+    margin-top:10px;
+
+    &:hover{
+        color: getcolor(color1);
+        background-color: #ffffff;
+    }
+}
+
+.chatcontainer{
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    position: relative;
+    img{
+    float: left;
+    max-width: 50px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+    }
+    .post-date{
+    float: right;
+    color: #aaa;
+    }
+    &::after{
+        content:"";
+        display: table;
+        clear: both;
+    }
+    &.empty{
+        *{
+            display: none;
+        }
+        &::before{
+            content:attr(data-empty);
+            display: block;
+            font-weight: bold;
+        }
+    }
+    .post-options{
+        top: -10px;
+        a{
+            color: #000000;
+        }
+    }
+}
+.btn-remove-friend{
+    &::after{
+        content: attr(data-text);
+    }
+
+    &:hover{
+        &::after{
+            content: attr(data-hover);
+        }
+    }
+}

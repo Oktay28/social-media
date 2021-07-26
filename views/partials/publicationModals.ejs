@@ -1,0 +1,64 @@
+<div class="modal" id="comments-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Comments</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div id="comments-container">
+                    <div class="chatcontainer empty" data-empty="No Comments">
+                        <a href="/">
+                            <img src="/assets/images/default-user-img.jpg" alt="Avatar" title="name name">
+                        </a>
+                        <p>Sweet! So, what do you wanna do today?</p>
+                        <span class="post-date">11:02</span>
+                    </div>
+                </div>
+               
+
+            </div>
+            <div class="modal-footer">
+                <form action="/post-comment/" class="w-100" method="POST">
+                    <textarea name="commentField" id="comment-field" cols="30" rows="2" class="form-control" placeholder="Your comment..." required></textarea>
+                    <button type="submit" class="btn btn-primary" id="post-comment">Comment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" id="likes-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Likes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div id="likes-container">
+
+                    <div class="chatcontainer empty" data-empty="No Likes">
+                        <a href="/" class="d-flex text-dark align-items-center text-decoration-none">
+                            <img src="/assets/images/default-user-img.jpg" alt="Avatar" title="name name">
+                            <p class="mb-0">Sweet! So, what do you wanna do today?</p>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

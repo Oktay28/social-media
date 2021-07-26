@@ -1,0 +1,58 @@
+<%- include('./partials/header') %>
+    
+   <div class="container">
+       <div class="row" id="authorization-form">
+           <div class="col-12">
+               
+            <div class="card">
+                <div class="card-header bg-info">
+                  <h3 class="card-title">Login</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form class="form-horizontal" method="POST">
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 d-none d-lg-block">
+
+                        </div>
+
+                        <!-- right side -->
+                        <div class="col-lg-6 col-12">
+                          <div class="row py-5">
+
+                            <div class="col-12">
+                              <div class="form-group">
+                                <label for="email" class="col-form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                              </div>
+                            </div>
+
+                            <div class="col-12">
+                              <div class="form-group">
+                                <label for="password" class="col-form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password">
+                              </div>
+                            </div>
+
+
+                          </div>
+                        </div>
+                        <!-- end of right side -->
+                    </div>
+
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-info">Login</button>
+                    <a class="d-inline-block ml-3" href="/register">No account? Register</a>
+                  </div>
+                  <!-- /.card-footer -->
+                </form>
+              </div>
+
+           </div>
+       </div>
+   </div>
+
+<%- include('./partials/footer') %>

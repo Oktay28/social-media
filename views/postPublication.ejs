@@ -1,0 +1,54 @@
+<%- include('./partials/header') %>
+<%- include('./partials/headerBlock') %>
+
+<main class="position-relative">
+    <div id="main-block">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+
+                    <div class="make-publication py-4">
+
+                        <form action="/post-publication" method="POST" id="post-publication">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="mb-3 mb-md-0">
+                                        <div id="publication-image-holder" class="text-center">
+                                            <img id="post-publication-image" class="img-fluid" src="/assets/images/default-image-photo.jpg">
+                                            <input type="hidden" name="postImage" id="post-image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 d-flex flex-column justify-content-end">
+                                    <h4 class="text-center">Make publication</h4>
+                                    <div class="form-group">
+                                        <div class="custom-file">
+                                            <input id="publication-image-upload" type="file" name="uploadPostImage"
+                                                class="custom-file-input" accept="jpg, jpeg, png" required>
+                                            <label class="custom-file-label" for="publication-image-upload">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="postText" id="post-text" cols="30" rows="3" placeholder="your text"
+                                            class="form-control"></textarea>
+                                    </div>
+        
+                                    <input type="submit" class="btn btn-primary" value="Post">
+                                </div>
+                            </div>
+              
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+
+<%- include('./partials/footer') %>

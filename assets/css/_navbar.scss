@@ -1,0 +1,24 @@
+header{
+    #account-dropdown{
+        .dropdown-menu{
+            right:0;
+            left: unset;
+        }
+    }
+    #account{
+        &::after{
+            content: unset;
+        }
+    }
+    i{
+        font-size: 22px;
+    }
+}
+
+#search{
+    &:placeholder-shown{
+        & ~ .dropdown-menu{
+            display: none !important;
+        }
+    }
+}

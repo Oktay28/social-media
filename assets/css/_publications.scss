@@ -1,0 +1,100 @@
+.publication{
+    background-color: getcolor(color4);
+    color: #ffffff;
+    padding: 5px;
+    position: relative;
+    .publication-owner{
+        .publication-owner-photo{
+            img{
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+            }
+        }
+        .publication-owner-name{
+            font-size: 20px;
+        }
+        .publication-date{
+            font-style: italic;
+        }
+    }
+    .likes{
+        .like-icon{
+            font-size: 24px;
+            color: getcolor(color2);
+            transition: all 0.3s;
+            cursor: pointer;
+
+            &:hover{
+                transform: scale(1.2);
+            }
+        }
+        .liked{
+            display: none;
+        }
+        &.l{
+            .not-liked{
+                display: none;
+            }
+            .liked{
+                display: inline-block;
+            }
+        }
+    }
+
+    .comments, .likes-text{
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    .load-more-comments{
+        text-align: center;
+        cursor: pointer;
+        color: getcolor(color2);
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.post-options{
+    position: absolute;
+    right: 10px;
+    top: 0;
+
+    .dropdown-toggle{
+        color: #ffffff;
+        font-size: 30px;
+        text-decoration: none;
+        &::after{
+            content: "";
+            border:0;
+        }
+    }
+
+    .dropdown-menu{
+        right: 0;
+        left: unset !important;
+    }
+}
+
+#profile-publications{
+    .publication-image{
+        max-height: 200px;
+        overflow: hidden;
+    }
+}
+
+#likes-container{
+    display: flex;
+    flex-direction: column;
+    a{
+        margin-bottom: 10px;
+        color: #000000;
+    }
+}

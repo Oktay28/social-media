@@ -1,0 +1,33 @@
+<%- include('./partials/header') %>
+<%- include('./partials/headerBlock') %>
+
+<main class="position-relative">
+   <div id="main-block">
+      <%= locals.proba %>
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+               <div class="publications">
+                  <% if(!publications.length){ %>
+                     <h3 class="mt-5">
+                        No publications to show
+                     </h3>
+                     <a href="/post-publication">Add few</a>
+                  <% } %>
+                  <% publications.forEach(function(publication) { %>
+                     <%- include('./partials/publication', {publication}) %>
+                 <% }); %>
+
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+</main>
+
+<%- include('./partials/publicationModals') %>
+<%- include('./partials/footer') %>

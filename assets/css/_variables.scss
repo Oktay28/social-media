@@ -1,0 +1,29 @@
+$brSM: 576px;
+$brMD: 768px;
+$brLG: 992px;
+$brXL: 1200px;
+
+$sidebar-width: 250px;
+
+$page-colors: (
+    color0: #242526,
+    color1: #02231C,
+    color2: #55D9C0,
+    color3: #4DD86D,
+    color4: #107050
+);
+
+
+
+@function getcolor($color){
+    @return map-get($page-colors, $color);
+}
+
+$custom-radio-color: getcolor(color4);
+$custom-radio-offset: 4px;
+
+@mixin media-min-sm{
+    @media all and (min-width: $brSM){
+        @content;
+    }
+}

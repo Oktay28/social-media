@@ -1,0 +1,71 @@
+<%- include('./partials/header') %>
+<%- include('./partials/headerBlock') %>
+
+<main class="position-relative">
+    <div id="main-block">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mt-2">
+                        <div id="chat">
+                            <div id="chat-header" class="border-bottom">
+                                <a href="/profile?user=<%= data.user.id %>" class="text-dark">
+                                    <h2 class="px-3">
+                                        <%= data.user.name %>
+                                    </h2>
+                                </a>
+                            </div>
+                            <div id="chat-body" class="p-3">
+
+                                <% messages.forEach(message => { %>
+
+                                <div class="chatcontainer remove-item <% if(message.user_id == user.id) { %> own-message <% } %>">
+                                    <% if(message.user_id == user.id) { %> 
+                                        <div class="post-options">
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    ...
+                                                </a>
+                                                <div class="dropdown-menu">
+                                                  <a class="dropdown-item" href="javascript:void(0)" onclick="removeItem('Messages', '<%= message.id %>', this)">Delete</a>
+                                                </div>
+                                              </div>
+                                                </div>
+                                        <% } %>
+                                     
+                                        <a href="/profile?user=<%= message['User.id'] %>">
+                                            <img src="<%= message['User.avatar'] %>" alt="Avatar" title="<%= message['User.name'] %>">
+                                        </a>
+                                        <p><%= message.message %></p>
+                                        <span class="post-date"><%= message.created_at.toUTCString() %></span>
+                                        </div>
+
+                                <% }) %>
+
+                            </div>
+                            <div id="chat-footer" class="d-flex justify-content-end border-top">
+                                <textarea id="chat-field" cols="30" rows="2" class="form-control"></textarea>
+                                <button class="btn btn-success px-3" onclick="sendMessage('<%=data.user.id %>')">
+                                    Send
+                                </button>
+                            </div>
+    
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+
+<%- include('./partials/footer') %>
+
+<script>
+    $("#chat-body").scrollTop($("#chat-body")[0].scrollHeight);
+</script>

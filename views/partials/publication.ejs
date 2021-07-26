@@ -1,0 +1,61 @@
+<div class="publication my-3 remove-item">
+    <div class="publication-owner">
+        <div class="publication-header d-flex ">
+            <a href="/profile?user=<%= publication["User.id"] %>" class="text-decoration-none text-white">
+                <div class="publication-owner-photo">
+                    <img src="<%= publication["User.avatar"] %>" class="img-fluid" alt="photo">
+                </div>
+            </a>
+                <div class="ml-3">
+                    <a href="/profile?user=<%= publication["User.id"] %>" class="text-decoration-none text-white">
+                        <div class="publication-owner-name">
+                            <%= publication["User.name"] %>
+                        </div>
+                    </a>
+                    <div class="publication-date">
+                        <%= publication.created_at.toUTCString() %>
+                    </div>
+                </div>
+                <% if(publication.user_id == user.id){ %>
+                <div class="post-options">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ...
+                        </a>
+                        <div class="dropdown-menu">
+                          <button class="dropdown-item" onclick="removeItem('Publications', '<%= publication.id || 0 %>', this)">Delete</button>
+                        </div>
+                      </div>
+                </div>
+            <% } %>
+        </div>
+        <div class="publication-body">
+            <a href="/publication/<%= publication.id %>">
+                <div class="publication-image">
+                    <img src="<%= publication.post_photo %>" alt="img" class="img-fluid">
+                </div>
+            </a>
+            <div class="publication-text font-weight-bold">
+                <%= publication.post_text %>
+            </div>
+        </div>
+        <div class="publication-footer d-flex align-items-center mt-3">
+        <div class="likes likes-btn px-2 font-weight-bold <% if(publication["Likes.id"]){ %> l <% } %>" data-id="<%= publication.id %>">
+                <i class="far fa-thumbs-up like-icon not-liked"></i>
+                <i class="fas fa-thumbs-up like-icon liked"></i>
+            </div>
+            <span class="likes-text font-weight-bold" role="button" data-toggle="modal" data-target="#likes-modal" data-whatever="<%= publication.id %>">
+                <span class="likes-count">
+                    <%= publication.numberLikes %>
+                </span> Likes
+            </span>
+            <div class="ml-3 font-weight-bold comments" role="button" data-toggle="modal" data-target="#comments-modal" data-whatever="<%= publication.id %>">
+                <span class="comments-count">
+                    <%= publication.numberComments %>
+                </span>
+                Comments
+            </div>
+ 
+        </div>
+    </div>
+</div>

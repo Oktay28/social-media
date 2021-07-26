@@ -1,0 +1,55 @@
+<%- include('./partials/header') %>
+<%- include('./partials/headerBlock') %>
+
+<main class="position-relative">
+    <div id="main-block">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="friend-requests">
+
+                        <% if(!data.users.length){ %>
+                            <h1 class="text-center mt-4"> No Friends </h1>
+                        <% } %>
+
+                        <% data.users.forEach(item => { %>
+
+                            <div class="row friend-request py-2 my-2 align-items-center border rounded">
+                                <div class="col-2">
+                                    <a href="/profile?user=<%= item["User.id"] %>">
+                                        <img src="<%= item["User.avatar"] %>" alt="user"
+                                            class="img-fluid rounded-circle user-photo">
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="/profile?user=<%= item["User.id"] %>" class="text-dark">
+                                        <%= item["User.name"] %>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <div class="btn-group" role="group" aria-label="friend managemenet">
+                                        <button class="btn btn-success" role="button" onclick="location.href='/profile?user=<%= item[`User.id`] %>'">
+                                            View Profile
+                                        </button>
+                                        <button class="btn btn-warning" role="button" onclick="location.href='/chat?user=<%= item[`User.id`] %>'">
+                                            Chat
+                                        </button>
+                                      </div>
+    
+                                </div>
+                            </div>
+                            
+                        <% }); %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+
+<%- include('./partials/footer') %>

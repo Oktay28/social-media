@@ -1,0 +1,92 @@
+<%- include('./partials/header') %>
+<%- include('./partials/headerBlock') %>
+
+<main class="position-relative">
+    <div id="main-block">
+        <h2 class="text-center mt-3">Edit Profile</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form method="POST" id="post-publication">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="mb-3 mb-md-0">
+                                    <div id="publication-image-holder" class="text-center">
+                                        <img id="post-publication-image" class="img-fluid" src="<%= user.avatar %>">
+                                        <input type="hidden" name="avatar" id="post-image" value="<%= user.avatar %>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 d-flex flex-column justify-content-end">
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input id="publication-image-upload" type="file" name="uploadPostImage"
+                                            class="custom-file-input" accept="jpg, jpeg, png">
+                                        <label class="custom-file-label" for="publication-image-upload">Choose file</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="fname" class="col-form-label">First Name</label>
+                                            <input type="text" name="fname" class="form-control" id="fname" value="<%= user.name.split(" ")[0] %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="lname" class="col-form-label">Last Name</label>
+                                            <input type="text" name="lname" class="form-control" id="lname" value="<%= user.name.split(" ")[1] %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="email" class="col-form-label">Email</label>
+                                            <input type="email" name="email" class="form-control" id="email" value="<%= user.email %>">
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="address" class="col-form-label">Address</label>
+                                    <input type="text" name="address" id="address" class="form-control" value="<%= user.address %>">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="job" class="col-form-label">Job</label>
+                                    <input type="text" name="job" id="job" class="form-control" value="<%= user.job %>">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                  <label for="birthday" class="col-form-label">Birthday</label>
+                                  <input type="text" class="form-control" id="birthday" name="birthday" value="<%= user.birthday %>">
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                  <div class="form-group">
+                                    <label for="phone" class="col-form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" value="<%= user.phone %>">
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-12 text-right">
+                                <a href="/change-password" class="mr-3">Edit Password</a>
+                                <button class="btn btn-success" type="submit">
+                                    Edit
+                                </button>
+                            </div>
+                        </div>
+          
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('./partials/publicationModals') %>
+<%- include('./partials/footer') %>

@@ -1,0 +1,49 @@
+#primary-message-box{
+    width: 500px;
+}
+
+#chat-new-message{
+    min-height: calc( 100vh - 100px );
+}
+
+#chat{
+    #chat-header{
+        height: 50px;
+    }
+    #chat-footer{
+        height: 100px;
+    }
+    #chat-body{
+        height: 60vh;
+        overflow-y: scroll;
+
+        .post-options{
+            top: -20px;
+            right: -5px;
+        }
+        .dropdown-menu{
+            top: 45px !important;
+            right: 0 !important;
+            transform: unset !important;
+        }
+    }
+    .chatcontainer{
+        &.own-message{
+            a{
+                float: right;
+            }
+            .post-date{
+                float: left;
+            }
+        }
+    }
+}
+
+@media all and (max-width: $brMD - 1px){
+    #primary-message-box{
+        width: 100%
+    }
+    #chat-new-message{
+        min-height: auto;
+    }
+}
